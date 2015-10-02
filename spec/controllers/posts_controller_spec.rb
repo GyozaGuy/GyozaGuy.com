@@ -4,10 +4,10 @@ describe PostsController do
   render_views
   describe 'index' do
     before do
-      Post.create!(title: 'Test Post 1')
-      Post.create!(title: 'Test Post 2')
-      Post.create!(title: 'Test Post 3')
-      Post.create!(title: 'Test Post 4')
+      Post.create!(id: 1, title: 'Test Post 1')
+      Post.create!(id: 2, title: 'Test Post 2')
+      Post.create!(id: 3, title: 'Test Post 3')
+      Post.create!(id: 4, title: 'Test Post 4')
 
       xhr :get, :index, format: :json, keywords: keywords
     end
