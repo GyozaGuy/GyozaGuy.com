@@ -31,11 +31,3 @@
 #
 # For more information: http://github.com/modeset/teaspoon
 #= require angular-mocks/angular-mocks
-beforeEach ->
-  jasmine.addMatchers toEqualData: (util, customEqualityTesters) ->
-  {
-    compare: (actual, expected) ->
-      result = {}
-      result.pass = angular.equals(actual, expected)
-      result
-  }

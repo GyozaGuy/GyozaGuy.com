@@ -14,25 +14,6 @@ website.config([ '$routeProvider',
       )
 ])
 
-# posts = [
-#   {
-#     id: 1
-#     title: 'Test Post 1'
-#   },
-#   {
-#     id: 2
-#     title: 'Test Post 2'
-#   },
-#   {
-#     id: 3
-#     title: 'Test Post 3'
-#   },
-#   {
-#     id: 4
-#     title: 'Test Post 4'
-#   },
-# ]
-
 controllers = angular.module('controllers',[])
 controllers.controller('PostsController', [ '$scope', '$routeParams', '$location', '$resource',
   ($scope, $routeParams, $location, $resource)->

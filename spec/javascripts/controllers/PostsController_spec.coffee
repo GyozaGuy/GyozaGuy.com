@@ -22,4 +22,4 @@ describe 'PostsController', ->
   beforeEach(setupController())
 
   it 'defaults to no posts', ->
-    expect(scope.posts).toEqualData([])
+    expect(scope.posts).toEqual([])
