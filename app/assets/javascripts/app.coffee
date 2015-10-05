@@ -1,8 +1,9 @@
 website = angular.module('website', [
-  'templates',
   'ngRoute',
-  'ngResource'
+  'ngResource',
   'controllers',
+  'angular-flash.service',
+  'angular-flash.flash-alert-directive'
 ])
 
 website.config([ '$routeProvider',
@@ -11,6 +12,9 @@ website.config([ '$routeProvider',
       .when('/',
         templateUrl: 'index.html'
         controller: 'PostsController'
+      ).when('/posts/:postId',
+        templateUrl: 'show.html'
+        controller: 'PostController'
       )
 ])
 

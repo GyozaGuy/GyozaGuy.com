@@ -42,4 +42,29 @@ describe PostsController do
     end
 
   end
+
+  describe 'show' do
+    before do
+      xhr :get, :show, format: :json, id: post_id
+    end
+
+    subject(:results) { JSON.parse(response.body) }
+
+    context 'when the post exists' do
+      let(:post) {
+        Post.create!(title: 'Test Post 1', content: 'This is a test of the emergency alert system.')
+      }
+      let(:post_id) { post.id }
+
+      it { expect(response.status).to eq(200) }
+      it { expect(results['id']).to eq(post.id) }
+      it { expect(results['title']).to eq(post.title) }
+      it { expect(results['content']).to eq(post.content) }
+    end
+
+    context "when the post doesn't exit" do
+      let(:post_id) { -9999 }
+      it { expect(response.status).to eq(404) }
+    end
+  end
 end

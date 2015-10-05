@@ -29,7 +29,7 @@ describe 'PostsController', ->
     )
 
   beforeEach(module('website'))
-  # beforeEach(setupController())
+  beforeEach(setupController())
 
   afterEach ->
     httpBackend.verifyNoOutstandingExpectation()
@@ -60,8 +60,8 @@ describe 'PostsController', ->
       setupController(keywords, posts)
       httpBackend.flush()
 
-    # it 'calls the backend', ->
-    #   expect(scope.posts).toEqual(posts)
+    it 'calls the backend', ->
+      expect(scope.posts[0][0]).toEqual(posts[0][0])
 
   describe 'search()', ->
     beforeEach ->
