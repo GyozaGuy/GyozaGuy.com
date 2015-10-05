@@ -1,4 +1,4 @@
-website = angular.module('website',[
+website = angular.module('website', [
   'templates',
   'ngRoute',
   'ngResource'
@@ -14,16 +14,4 @@ website.config([ '$routeProvider',
       )
 ])
 
-controllers = angular.module('controllers',[])
-controllers.controller('PostsController', [ '$scope', '$routeParams', '$location', '$resource',
-  ($scope, $routeParams, $location, $resource)->
-    $scope.search = (keywords)-> $location.path('/').search('keywords', keywords)
-    Post = $resource('/posts/:postId', { postId: "@id", format: 'json' })
-
-    if $routeParams.keywords
-      # keywords = $routeParams.keywords.toLowerCase()
-      # $scope.recipes = recipes.filter (recipe)-> recipe.name.toLowerCase().indexOf(keywords) != -1
-      Post.query(keywords: $routeParams.keywords, (results)-> $scope.recipes = results)
-    else
-      $scope.posts = []
-])
+controllers = angular.module('controllers', [])
